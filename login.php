@@ -29,7 +29,7 @@ if (isset($_POST['login'])) {
     <link rel="stylesheet" href="style.css">
     <link href="fontawesome/css/all.css" rel="stylesheet"> <!--load all styles -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"> 
-    <title>Ovi</title>
+    <title>Judul</title>
 </head>
 <body>
     <div class="container-fluid login">
