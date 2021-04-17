@@ -14,7 +14,9 @@
 -- Dumping structure for table db_dectree_ayam.dset
 DROP TABLE IF EXISTS `dset`;
 CREATE TABLE IF NOT EXISTS `dset` (
-  `umur` int(2) NOT NULL AUTO_INCREMENT,
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `umur` int(20) DEFAULT NULL,
+  `user_id` int(20) DEFAULT NULL,
   `jumlahayam` int(11) NOT NULL DEFAULT '0',
   `mortalitas` int(11) NOT NULL DEFAULT '0',
   `berat` int(11) NOT NULL DEFAULT '0',
@@ -23,15 +25,12 @@ CREATE TABLE IF NOT EXISTS `dset` (
   `kmortalitas` varchar(50) DEFAULT '',
   `deskripsi` varchar(200) DEFAULT '',
   `tgl` varchar(50) DEFAULT '0',
-  PRIMARY KEY (`umur`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_dectree_ayam.dset: ~2 rows (approximately)
+-- Dumping data for table db_dectree_ayam.dset: ~0 rows (approximately)
 DELETE FROM `dset`;
 /*!40000 ALTER TABLE `dset` DISABLE KEYS */;
-INSERT INTO `dset` (`umur`, `jumlahayam`, `mortalitas`, `berat`, `pakan`, `ksuhu`, `kmortalitas`, `deskripsi`, `tgl`) VALUES
-	(1, 3000, 0, 109, 20.0, 35, 'Mortalitas Kecil', '', '11-04-2021'),
-	(2, 3000, 4, 109, 20.0, 35, 'Mortalitas Kecil', '', '12-04-2021');
 /*!40000 ALTER TABLE `dset` ENABLE KEYS */;
 
 -- Dumping structure for table db_dectree_ayam.setting
@@ -63,51 +62,69 @@ CREATE TABLE IF NOT EXISTS `sop` (
   `berat` int(11) NOT NULL DEFAULT '0',
   `pakan` decimal(10,1) NOT NULL DEFAULT '0.0',
   `suhu` decimal(10,0) NOT NULL DEFAULT '0',
+  `pakan_gram` decimal(10,1) NOT NULL DEFAULT '0.0',
   PRIMARY KEY (`umur`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table db_dectree_ayam.sop: ~37 rows (approximately)
 DELETE FROM `sop`;
 /*!40000 ALTER TABLE `sop` DISABLE KEYS */;
-INSERT INTO `sop` (`umur`, `berat`, `pakan`, `suhu`) VALUES
-	(1, 56, 0.8, 33),
-	(2, 71, 1.0, 33),
-	(3, 88, 1.3, 33),
-	(4, 105, 1.4, 30),
-	(5, 130, 1.6, 30),
-	(6, 155, 1.8, 30),
-	(7, 184, 2.0, 30),
-	(8, 215, 2.3, 28),
-	(9, 249, 2.6, 28),
-	(10, 287, 2.8, 28),
-	(11, 328, 3.2, 28),
-	(12, 372, 3.5, 27),
-	(13, 420, 3.8, 27),
-	(14, 470, 4.1, 27),
-	(15, 525, 4.4, 27),
-	(16, 582, 4.8, 27),
-	(17, 642, 5.2, 27),
-	(18, 705, 5.5, 27),
-	(19, 772, 5.9, 27),
-	(20, 841, 6.3, 27),
-	(21, 913, 6.7, 27),
-	(22, 987, 7.0, 27),
-	(23, 1064, 7.4, 27),
-	(24, 1142, 7.7, 27),
-	(25, 1224, 8.1, 27),
-	(26, 1306, 8.5, 27),
-	(27, 1391, 8.9, 27),
-	(28, 1477, 9.2, 27),
-	(29, 1564, 9.5, 26),
-	(30, 1653, 9.9, 26),
-	(31, 1743, 10.2, 26),
-	(32, 1833, 10.5, 26),
-	(33, 1925, 10.8, 26),
-	(34, 2017, 11.1, 26),
-	(35, 2110, 11.4, 26),
-	(36, 2203, 3.0, 26),
-	(37, 2296, 2.0, 26);
+INSERT INTO `sop` (`umur`, `berat`, `pakan`, `suhu`, `pakan_gram`) VALUES
+	(1, 56, 0.8, 33, 10.0),
+	(2, 71, 1.0, 33, 0.0),
+	(3, 88, 1.3, 33, 0.0),
+	(4, 105, 1.4, 30, 0.0),
+	(5, 130, 1.6, 30, 0.0),
+	(6, 155, 1.8, 30, 0.0),
+	(7, 184, 2.0, 30, 0.0),
+	(8, 215, 2.3, 28, 0.0),
+	(9, 249, 2.6, 28, 0.0),
+	(10, 287, 2.8, 28, 0.0),
+	(11, 328, 3.2, 28, 0.0),
+	(12, 372, 3.5, 27, 0.0),
+	(13, 420, 3.8, 27, 0.0),
+	(14, 470, 4.1, 27, 0.0),
+	(15, 525, 4.4, 27, 0.0),
+	(16, 582, 4.8, 27, 0.0),
+	(17, 642, 5.2, 27, 0.0),
+	(18, 705, 5.5, 27, 0.0),
+	(19, 772, 5.9, 27, 0.0),
+	(20, 841, 6.3, 27, 0.0),
+	(21, 913, 6.7, 27, 0.0),
+	(22, 987, 7.0, 27, 0.0),
+	(23, 1064, 7.4, 27, 0.0),
+	(24, 1142, 7.7, 27, 0.0),
+	(25, 1224, 8.1, 27, 0.0),
+	(26, 1306, 8.5, 27, 0.0),
+	(27, 1391, 8.9, 27, 0.0),
+	(28, 1477, 9.2, 27, 0.0),
+	(29, 1564, 9.5, 26, 0.0),
+	(30, 1653, 9.9, 26, 0.0),
+	(31, 1743, 10.2, 26, 0.0),
+	(32, 1833, 10.5, 26, 0.0),
+	(33, 1925, 10.8, 26, 0.0),
+	(34, 2017, 11.1, 26, 0.0),
+	(35, 2110, 11.4, 26, 0.0),
+	(36, 2203, 3.0, 26, 0.0),
+	(37, 2296, 2.0, 26, 0.0);
 /*!40000 ALTER TABLE `sop` ENABLE KEYS */;
+
+-- Dumping structure for table db_dectree_ayam.user
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(200) DEFAULT '0',
+  `username` varchar(200) NOT NULL DEFAULT '0',
+  `email` varchar(200) NOT NULL DEFAULT '0',
+  `password` varchar(200) NOT NULL DEFAULT '0',
+  `alamat` varchar(200) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Dumping data for table db_dectree_ayam.user: ~0 rows (approximately)
+DELETE FROM `user`;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
