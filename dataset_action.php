@@ -19,9 +19,9 @@
         $dectree = decision_tree($umur, $mortalitas, $jumlahayam, $berat);
         $kmortalitas=$dectree['nilai']; // value from decision tree
         $deskripsi=$dectree['deskripsi']; // value from decision tree
-        
-        $query=mysqli_query($koneksi,"INSERT INTO dset(`user_id`, `umur`, `jumlahayam`, `mortalitas`, `berat`, `pakan`, `ksuhu`, `kmortalitas`, `deskripsi`, `tgl`)
-            VALUES($user_id, '$umur','$jumlahayam','$mortalitas','$berat','$pakan','$ksuhu','$kmortalitas', '$deskripsi', '$tgl')");
+        $deskripsi = mysqli_escape_string($koneksi, $deskripsi);
+        $query=mysqli_query($koneksi, "INSERT INTO dset(`user_id`, `umur`, `jumlahayam`, `mortalitas`, `berat`, `pakan`, `ksuhu`, `kmortalitas`, `deskripsi`, `tgl`)
+        VALUES($user_id, '$umur','$jumlahayam','$mortalitas','$berat','$pakan','$ksuhu','$kmortalitas', '$deskripsi', '$tgl')");
         if ($query){
             header('location:dataset.php', true, 302);
         } else { 
