@@ -3,7 +3,7 @@ include("layout/navbar.php");
 include("layout/sidebar.php");
 include("config.php");
 include ('check_login.php');
-$umur = $_GET['umur'] ?? NULL;
+$umur = isset($_GET['umur']) ? $_GET['umur'] : NULL;
 $user_id = $_SESSION['user_login'];
 if (!$umur) header('location:dataset.php', true, 302);
 

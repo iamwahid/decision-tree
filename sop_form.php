@@ -4,8 +4,8 @@ include("layout/sidebar.php");
 include("config.php");
 include ('check_login.php');
 
-$action = $_GET['action'] ?? 'create';
-$umur = $_GET['umur'] ?? NULL;
+$action = isset($_GET['action']) ? $_GET['action'] : 'create';
+$umur = isset($_GET['umur']) ? $_GET['umur'] : NULL;
 if ($action == 'edit' && $umur) {
     $query=mysqli_query($koneksi,"SELECT * FROM sop WHERE umur = '$umur' LIMIT 1");
     $sop = mysqli_fetch_assoc($query);

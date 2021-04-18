@@ -5,8 +5,8 @@ include("config.php");
 include ('check_login.php');
 // $query=mysqli_query($koneksi,"SELECT * FROM dset");
 
-$action = $_GET['action'] ?? 'create';
-$umur = $_GET['umur'] ?? NULL;
+$action = isset($_GET['action']) ? $_GET['action'] : 'create';
+$umur = isset($_GET['umur']) ? $_GET['umur'] : NULL;
 $user_id = $_SESSION['user_login'];
 if ($action == 'edit' && $umur) {
     $query=mysqli_query($koneksi,"SELECT * FROM dset WHERE umur = '$umur' AND user_id = $user_id LIMIT 1");
