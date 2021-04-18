@@ -9,11 +9,17 @@ $first = mysqli_fetch_assoc($query);
 $query=mysqli_query($koneksi,"SELECT MAX(umur) as last FROM dset WHERE user_id = $user_id");
 $max = mysqli_fetch_assoc($query);
 if (!$max) {
-  echo "error";
+  echo "error";die;
 }
 
-$query=mysqli_query($koneksi,"SELECT * FROM dset WHERE umur = ".$max['last']." AND user_id = $user_id LIMIT 1");
-$last = mysqli_fetch_assoc($query);
+if ($max['last']) {
+  $query=mysqli_query($koneksi,"SELECT * FROM dset WHERE umur = ".$max['last']." AND user_id = $user_id LIMIT 1");
+  $last = mysqli_fetch_assoc($query);
+} else {
+  $last['umur'] = '-';
+  $last['jumlahayam'] = '-';
+  $last['berat'] = '-';
+}
 
 $query=mysqli_query($koneksi,"SELECT SUM(pakan) AS sum FROM dset WHERE user_id = $user_id LIMIT 1");
 $sum_pakan = mysqli_fetch_assoc($query)['sum'];
@@ -21,7 +27,7 @@ $sum_pakan = mysqli_fetch_assoc($query)['sum'];
 $query=mysqli_query($koneksi,"SELECT SUM(mortalitas) AS sum FROM dset WHERE user_id = $user_id");
 $sum_mortalitas = mysqli_fetch_assoc($query)['sum'];
 
-$persen_mortalitas = $sum_mortalitas / $first['jumlahayam'] * 100;
+$persen_mortalitas = $first ? $sum_mortalitas / $first['jumlahayam'] * 100 : 0;
 ?>
 <div class="wrapper">
   <!--end-->

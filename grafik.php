@@ -150,7 +150,7 @@ var pakanChart = new Chart(pakanCtx, {
                 borderWidth: 1
             },
             {
-                label: '# SOP Pakan',
+                label: '# Rekomendasi Pakan',
                 data: JSON.parse('<?=$sop_pakan_values?>'),
                 backgroundColor: [
                     'lightblue',
@@ -187,7 +187,7 @@ var beratChart = new Chart(beratCtx, {
                 borderWidth: 1
             },
             {
-                label: '# SOP Berat',
+                label: '# Rekomendasi Berat',
                 data: JSON.parse('<?=$sop_berat_values?>'),
                 backgroundColor: [
                     'indigo',
@@ -224,7 +224,7 @@ var suhuChart = new Chart(suhuCtx, {
                 borderWidth: 1
             },
             {
-                label: '# SOP Suhu',
+                label: '# Rekomendasi Suhu',
                 data: JSON.parse('<?=$sop_suhu_values?>'),
                 backgroundColor: [
                     'yellow',

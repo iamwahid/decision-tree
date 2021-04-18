@@ -48,15 +48,15 @@ $query=mysqli_query($koneksi,"SELECT * FROM dset WHERE user_id = $user_id");
                     <td><?=$data['pakan'] ?></td>
                     <td><?=$data['ksuhu'] ?></td>
                     <td><?=$data['kmortalitas'] ?></td>
-                    <td><?php echo $data['deskripsi']; ?></td>
-                    <td><?php echo $data['tgl']; ?></td>
+                    <td><?=$data['deskripsi']?></td>
+                    <td><?=$data['tgl']?></td>
               
                     <td>
-                    <a href="dataset_sop_compare.php?umur=<?php echo $data['umur']; ?>"><button type="button" class="btn btn-secondary"><i class="fas fa-info-circle"></i></button></a> 
-                    <a href="dataset_form.php?action=edit&umur=<?php echo $data['umur']; ?>"><button type="button" class="btn btn-secondary"><i class="fas fa-edit text-white"></i></button></a> 
-                    <a href="#"><button type="button" class="btn btn-danger" onclick="document.getElementById('dataset_delete_<?= $data['umur'] ?>').submit()"><i class="fas fa-trash-alt"></i></button></a>
-                    <form action="dataset_action.php" id="dataset_delete_<?= $data['umur'] ?>" method="POST">
-                        <input type="hidden" name="umur" value="<?= $data['umur'] ?>">
+                    <a href="dataset_sop_compare.php?id=<?=$data['id']?>"><button type="button" class="btn btn-secondary"><i class="fas fa-info-circle"></i></button></a> 
+                    <a href="dataset_form.php?action=edit&id=<?=$data['id']?>"><button type="button" class="btn btn-secondary"><i class="fas fa-edit text-white"></i></button></a> 
+                    <a href="#"><button type="button" class="btn btn-danger" onclick="document.getElementById('dataset_delete_<?= $data['id'] ?>').submit()"><i class="fas fa-trash-alt"></i></button></a>
+                    <form action="dataset_action.php" id="dataset_delete_<?= $data['id'] ?>" method="POST">
+                        <input type="hidden" name="id" value="<?= $data['id'] ?>">
                         <input type="hidden" name="action" value="delete">
                     </form>
                     </td>

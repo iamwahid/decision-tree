@@ -6,10 +6,10 @@ include ('check_login.php');
 // $query=mysqli_query($koneksi,"SELECT * FROM dset");
 
 $action = isset($_GET['action']) ? $_GET['action'] : 'create';
-$umur = isset($_GET['umur']) ? $_GET['umur'] : NULL;
+$id = isset($_GET['id']) ? $_GET['id'] : NULL;
 $user_id = $_SESSION['user_login'];
-if ($action == 'edit' && $umur) {
-    $query=mysqli_query($koneksi,"SELECT * FROM dset WHERE umur = '$umur' AND user_id = $user_id LIMIT 1");
+if ($action == 'edit' && $id) {
+    $query=mysqli_query($koneksi,"SELECT * FROM dset WHERE id = '$id' AND user_id = $user_id LIMIT 1");
     $dataset = mysqli_fetch_assoc($query);
 }
 
