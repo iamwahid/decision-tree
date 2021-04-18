@@ -15,6 +15,7 @@ if ($action == 'edit' && $id) {
 
 $query=mysqli_query($koneksi,"SELECT MAX(umur) as val FROM dset WHERE user_id = $user_id");
 $max = mysqli_fetch_assoc($query);
+$max_val = $max['val'] ? $max['val']+1 : 1;
 
 ?>
 <!--content-->
@@ -26,7 +27,7 @@ $max = mysqli_fetch_assoc($query);
                 <label>Umur (Hari)</label>
             </div>
             <div class="col-sm">
-                <input class="form-control form-control" type="text" name="umur" style="width:45rem" value="<?= $action == 'edit' ? $dataset['umur'] : '' ?>" <?= $action == 'edit' ? 'readonly' : '' ?> >
+                <input class="form-control form-control" type="text" name="umur" style="width:45rem" value="<?= $action == 'edit' ? $dataset['umur'] : $max_val ?>" readonly >
             </div>
         </div> 
         <?php // if ($action == 'create' && (int)$max['val'] <= 1): ?>
