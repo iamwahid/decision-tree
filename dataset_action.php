@@ -20,11 +20,11 @@
         $kmortalitas=$dectree['nilai']; // value from decision tree
         $deskripsi=$dectree['deskripsi']; // value from decision tree
         
-        $query=mysqli_query($koneksi,"INSERT INTO dset(user_id, umur, jumlahayam, mortalitas, berat, pakan, ksuhu, kmortalitas, deskripsi, tgl)
-            VALUES('$user_id', '$umur','$jumlahayam','$mortalitas','$berat','$pakan','$ksuhu','$kmortalitas', '$deskripsi', '$tgl')");
+        $query=mysqli_query($koneksi,"INSERT INTO dset(`user_id`, `umur`, `jumlahayam`, `mortalitas`, `berat`, `pakan`, `ksuhu`, `kmortalitas`, `deskripsi`, `tgl`)
+            VALUES($user_id, '$umur','$jumlahayam','$mortalitas','$berat','$pakan','$ksuhu','$kmortalitas', '$deskripsi', '$tgl')");
         if ($query){
             header('location:dataset.php', true, 302);
-        } else {
+        } else { 
             echo "Gagal Buat";
         }
     } else if ($action == 'update') {
