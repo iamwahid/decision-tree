@@ -3,15 +3,15 @@ include("layout/navbar.php");
 include("layout/sidebar.php");
 include("config.php");
 include ('check_login.php');
-$umur = isset($_GET['umur']) ? $_GET['umur'] : NULL;
+$id = isset($_GET['id']) ? $_GET['id'] : NULL;
 $user_id = $_SESSION['user_login'];
-if (!$umur) header('location:dataset.php', true, 302);
+if (!$id) header('location:dataset.php', true, 302);
 
-$dataset = mysqli_query($koneksi, "SELECT * FROM dset WHERE umur = '$umur' AND user_id = $user_id LIMIT 1");
-$sop = mysqli_query($koneksi, "SELECT * FROM sop WHERE umur = '$umur' LIMIT 1");
+$dataset = mysqli_query($koneksi, "SELECT * FROM dset WHERE id = '$id' AND user_id = $user_id LIMIT 1");
+$dtset = mysqli_fetch_assoc($dataset);
 
-$dtset = mysqli_fetch_row($dataset);
-$dsop = mysqli_fetch_row($sop);
+$sop = mysqli_query($koneksi, "SELECT * FROM sop WHERE umur = '".$dtset['umur']."' LIMIT 1");
+$dsop = mysqli_fetch_assoc($sop);
 
 ?>
 
@@ -38,39 +38,39 @@ $dsop = mysqli_fetch_row($sop);
                 <tbody>
                   <tr>
                     <th>Umur</th>
-                    <td><?=$dtset[0]?> Hari</td>
-                    <td><?=$dsop[0]?> Hari</td>
+                    <td><?=$dtset['umur']?> Hari</td>
+                    <td><?=$dsop['umur']?> Hari</td>
                     <td> - </td>
                   </tr>
                   <tr>
                     <th>Jumlah Ayam</th>
-                    <td><?=$dtset[1]?></td>
+                    <td><?=$dtset['jumlahayam']?></td>
                     <td> - </td>
                     <td> - </td>
                   </tr>
                   <tr>
                     <th>Mortalitas</th>
-                    <td><?=$dtset[2]?></td>
+                    <td><?=$dtset['mortalitas']?></td>
                     <td> - </td>
                     <td> - </td>
                   </tr>
                   <tr>
                     <th>Berat</th>
-                    <td><?=$dtset[3]?> gram</td>
-                    <td><?=$dsop[1]?> gram</td>
-                    <td><?=(int)$dtset[3] - (int)$dsop[1]?> gram</td>
+                    <td><?=$dtset['berat']?> gram</td>
+                    <td><?=$dsop['berat']?> gram</td>
+                    <td><?=(int)$dtset['berat'] - (int)$dsop['berat']?> gram</td>
                   </tr>
                   <tr>
                     <th>Pakan</th>
-                    <td><?=$dtset[4]?> sak</td>
-                    <td><?=$dsop[2]?> sak</td>
-                    <td><?=(float)$dtset[4] - (float)$dsop[2]?> sak</td>
+                    <td><?=$dtset['pakan']?> sak</td>
+                    <td><?=$dsop['pakan']?> sak</td>
+                    <td><?=(float)$dtset['pakan'] - (float)$dsop['pakan']?> sak</td>
                   </tr>
                   <tr>
                     <th>Suhu</th>
-                    <td><?=$dtset[5]?> °C</td>
-                    <td><?=$dsop[3]?> °C</td>
-                    <td><?=(int)$dtset[5] - (int)$dsop[3]?> °C</td>
+                    <td><?=$dtset['ksuhu']?> °C</td>
+                    <td><?=$dsop['suhu']?> °C</td>
+                    <td><?=(int)$dtset['ksuhu'] - (int)$dsop['suhu']?> °C</td>
                   </tr>
                 </tbody>
               </table>
