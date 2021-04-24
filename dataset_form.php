@@ -27,6 +27,9 @@ $max_val = $max['val'] ? $max['val']+1 : 1;
                 <label>Umur (Hari)</label>
             </div>
             <div class="col-sm">
+                <?php if ($action == 'edit'): ?>
+                <input type="hidden" name="id" value="<?=$dataset['id']?>">
+                <?php endif ?>
                 <input class="form-control form-control" type="text" name="umur" style="width:45rem" value="<?= $action == 'edit' ? $dataset['umur'] : $max_val ?>" readonly >
             </div>
         </div> 

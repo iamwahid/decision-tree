@@ -1,6 +1,6 @@
 <?php
     include ('config.php');
-    include ('decision_tree.php');
+    include ('decision_tree_v2.php');
     include ('check_login.php');
     if (isset($_POST['action'])) {
         $action = $_POST['action'];
@@ -16,12 +16,59 @@
         $ksuhu=$_POST['ksuhu'];
         $tgl=$_POST['tgl'];
     
-        $dectree = decision_tree($umur, $mortalitas, $jumlahayam, $berat);
-        $kmortalitas=$dectree['nilai']; // value from decision tree
+        $dectree = decision_tree($umur, $mortalitas, $jumlahayam, $berat, $pakan);
+
+        // $kmortalitas=$dectree['nilai']; // value from decision tree
+        $pengelolaan=$dectree['pengelolaan']; // value from decision tree
         $deskripsi=$dectree['deskripsi']; // value from decision tree
+        $kat_umur=$dectree['umur']; // value from decision tree
+        $kat_jumlah=$dectree['jumlahayam']; // value from decision tree
+        $kat_mortalitas=$dectree['mortalitas']; // value from decision tree
+        $kat_berat=$dectree['berat']; // value from decision tree
+        $kat_pakan=$dectree['pakan']; // value from decision tree
+
         $deskripsi = mysqli_escape_string($koneksi, $deskripsi);
-        $query=mysqli_query($koneksi, "INSERT INTO dset(`user_id`, `umur`, `jumlahayam`, `mortalitas`, `berat`, `pakan`, `ksuhu`, `kmortalitas`, `deskripsi`, `tgl`)
-        VALUES($user_id, '$umur','$jumlahayam','$mortalitas','$berat','$pakan','$ksuhu','$kmortalitas', '$deskripsi', '$tgl')");
+        // echo var_dump($dectree);die;
+        $query=mysqli_query($koneksi, "INSERT INTO dset
+        (
+            `user_id`, 
+            `umur`, 
+            `jumlahayam`, 
+            `mortalitas`, 
+            `berat`, 
+            `pakan`, 
+            `ksuhu`, 
+            `kat_umur`, 
+            `kat_jumlah`, 
+            `kat_mortalitas`, 
+            `kat_berat`, 
+            `kat_pakan`, 
+            `kat_suhu`,
+            `kmortalitas`, 
+            `deskripsi`, 
+            `tgl`, 
+            `pengelolaan`
+        )
+        VALUES
+        (
+            $user_id, 
+            '$umur',
+            '$jumlahayam',
+            '$mortalitas',
+            '$berat',
+            '$pakan',
+            '$ksuhu',
+            '$kat_umur',
+            '$kat_jumlah',
+            '$kat_mortalitas',
+            '$kat_berat',
+            '$kat_pakan',
+            '',
+            '', 
+            '$deskripsi', 
+            '$tgl', 
+            '$pengelolaan')
+        ");
         if ($query){
             header('location:dataset.php', true, 302);
         } else { 
@@ -38,11 +85,34 @@
         $ksuhu=$_POST['ksuhu'];
         $tgl=$_POST['tgl'];
         
-        $dectree = decision_tree($umur, $mortalitas, $jumlahayam, $berat);
-        $kmortalitas=$dectree['nilai']; // value from decision tree
+        $dectree = decision_tree($umur, $mortalitas, $jumlahayam, $berat, $pakan);
+        // $kmortalitas=$dectree['nilai']; // value from decision tree
         $deskripsi=$dectree['deskripsi']; // value from decision tree
         $deskripsi = mysqli_escape_string($koneksi, $deskripsi);
-        $sql = "UPDATE dset SET jumlahayam='$jumlahayam', mortalitas='$mortalitas', berat='$berat', pakan='$pakan', ksuhu='$ksuhu', kmortalitas='$kmortalitas', deskripsi='$deskripsi', tgl='$tgl' WHERE id = '$id' AND user_id = $user_id";
+
+        $pengelolaan=$dectree['pengelolaan']; // value from decision tree
+        $kat_umur=$dectree['umur']; // value from decision tree
+        $kat_jumlah=$dectree['jumlahayam']; // value from decision tree
+        $kat_mortalitas=$dectree['mortalitas']; // value from decision tree
+        $kat_berat=$dectree['berat']; // value from decision tree
+        $kat_pakan=$dectree['pakan']; // value from decision tree
+        
+        $sql = "UPDATE dset SET 
+         jumlahayam='$jumlahayam', 
+         mortalitas='$mortalitas',
+         berat='$berat', 
+         pakan='$pakan', 
+         ksuhu='$ksuhu',
+         kat_jumlah='$kat_jumlah', 
+         kat_mortalitas='$kat_mortalitas',
+         kat_berat='$kat_berat', 
+         kat_pakan='$kat_pakan', 
+         kat_suhu='',
+         kmortalitas='$kmortalitas', 
+         deskripsi='$deskripsi', 
+         tgl='$tgl' 
+         
+         WHERE id = '$id' AND user_id = $user_id";
         $query=mysqli_query($koneksi, $sql);
         if ($query){
             header('location:dataset.php', true, 302);
@@ -54,7 +124,7 @@
         if ($id != NULL) 
             $query=mysqli_query($koneksi,"DELETE FROM dset WHERE id='$id' AND user_id = $user_id");
         
-        if ($query){
+        if ($query) {
             header('location:dataset.php', true, 302);
         } else {
             echo "Gagal Hapus";
@@ -70,8 +140,8 @@
     }
 ?>
 
-<script>
+<!-- <script>
 setTimeout(_ => {
     window.location = 'dataset.php';
 }, 500);
-</script>
+</script> -->

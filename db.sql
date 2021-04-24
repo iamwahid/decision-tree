@@ -16,21 +16,30 @@ DROP TABLE IF EXISTS `dset`;
 CREATE TABLE IF NOT EXISTS `dset` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
   `umur` int(20) DEFAULT NULL,
+  `kat_umur` varchar(50) DEFAULT NULL,
   `user_id` int(20) DEFAULT NULL,
-  `jumlahayam` int(11) NOT NULL DEFAULT '0',
+  `jumlahayam` int(50) NOT NULL DEFAULT '0',
+  `kat_jumlah` varchar(50) DEFAULT NULL,
   `mortalitas` int(11) NOT NULL DEFAULT '0',
+  `kat_mortalitas` varchar(50) DEFAULT NULL,
   `berat` int(11) NOT NULL DEFAULT '0',
+  `kat_berat` varchar(50) DEFAULT NULL,
   `pakan` decimal(10,1) NOT NULL DEFAULT '0.0',
+  `kat_pakan` varchar(50) DEFAULT NULL,
   `ksuhu` decimal(10,0) NOT NULL DEFAULT '0',
+  `kat_suhu` varchar(50) DEFAULT NULL,
   `kmortalitas` varchar(50) DEFAULT '',
   `deskripsi` varchar(200) DEFAULT '',
   `tgl` varchar(50) DEFAULT '0',
+  `pengelolaan` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_dectree_ayam.dset: ~0 rows (approximately)
+-- Dumping data for table db_dectree_ayam.dset: ~1 rows (approximately)
 DELETE FROM `dset`;
 /*!40000 ALTER TABLE `dset` DISABLE KEYS */;
+INSERT INTO `dset` (`id`, `umur`, `kat_umur`, `user_id`, `jumlahayam`, `kat_jumlah`, `mortalitas`, `kat_mortalitas`, `berat`, `kat_berat`, `pakan`, `kat_pakan`, `ksuhu`, `kat_suhu`, `kmortalitas`, `deskripsi`, `tgl`, `pengelolaan`) VALUES
+	(3, 1, 'kurang', 1, 3000, 'besar', 0, 'kecil', 2000, 'sedang', 15.0, 'tidak sesuai', 35, '', '', '', '11-04-2021', 'kurang');
 /*!40000 ALTER TABLE `dset` ENABLE KEYS */;
 
 -- Dumping structure for table db_dectree_ayam.setting
@@ -119,11 +128,13 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(200) NOT NULL DEFAULT '0',
   `alamat` varchar(200) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table db_dectree_ayam.user: ~0 rows (approximately)
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` (`id`, `nama`, `username`, `email`, `password`, `alamat`) VALUES
+	(1, 'Ahmat suwanto', 'iam', 'peserta101@hi2.in', '$2y$10$vjxxIJaMcI6bLEBp/eo1guq9cTV.MAZlMmDHRN1jtNg376hUyuDw2', 'iam');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
