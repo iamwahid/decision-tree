@@ -31,7 +31,7 @@ $query=mysqli_query($koneksi,"SELECT * FROM dset WHERE user_id = $user_id");
             <th scope="col">Berat (gram)</th>
             <th scope="col">Pakan (sak)</th>
             <th scope="col">Suhu (°C)</th>
-            <!-- <th scope="col">Kategori Mortalitas</th> -->
+            <th scope="col">Kategori Mortalitas</th>
             <th scope="col">Pengelolaan</th>
             <th scope="col">Tanggal</th>
             <th scope="col">Aksi</th>
@@ -47,7 +47,7 @@ $query=mysqli_query($koneksi,"SELECT * FROM dset WHERE user_id = $user_id");
                     <td><?=$data['berat'].' ('.$data['kat_berat'].')' ?></td>
                     <td><?=$data['pakan'].' ('.$data['kat_pakan'].')' ?></td>
                     <td><?=$data['ksuhu'] ?></td>
-                    <!-- <td><?=$data['kmortalitas'] ?></td> -->
+                    <td><?=$data['kat_mortalitas'] ?></td>
                     <td><?=$data['pengelolaan']?></td>
                     <td><?=$data['tgl']?></td>
               

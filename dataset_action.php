@@ -17,12 +17,12 @@
         
         $dectree = decision_tree($umur, $mortalitas, $jumlahayam, $berat, $pakan);
 
-        // $kmortalitas=$dectree['nilai']; // value from decision tree
         $pengelolaan=$dectree['pengelolaan']; // value from decision tree
         $deskripsi=$dectree['deskripsi']; // value from decision tree
         $kat_umur=$dectree['umur']; // value from decision tree
         $kat_jumlah=$dectree['jumlahayam']; // value from decision tree
         $kat_mortalitas=$dectree['mortalitas']; // value from decision tree
+        $kmortalitas=$dectree['mortalitas']; // value from decision tree
         $kat_berat=$dectree['berat']; // value from decision tree
         $kat_pakan=$dectree['pakan']; // value from decision tree
 
@@ -61,7 +61,7 @@
             '$kat_mortalitas',
             '$kat_berat',
             '$kat_pakan',
-            '',
+            '$kmortalitas',
             '', 
             '$deskripsi', 
             '$pengelolaan')
@@ -104,12 +104,13 @@
          kat_berat='$kat_berat', 
          kat_pakan='$kat_pakan', 
          kat_suhu='',
-         kmortalitas='$kmortalitas', 
-         deskripsi='$deskripsi'
+         kmortalitas='$kat_mortalitas', 
+         deskripsi='$deskripsi',
+         pengelolaan='$pengelolaan'
          
          WHERE id = '$id' AND user_id = $user_id";
         $query=mysqli_query($koneksi, $sql);
-        if ($query){
+        if ($query) {
             header('location:dataset.php', true, 302);
         } else {
             echo "Gagal Update";

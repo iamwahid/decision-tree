@@ -3,7 +3,7 @@ require 'vendor/autoload.php';
 include("config.php");
 include ('check_login.php');
 $user_id = $_SESSION['user_login'];
-$q_sop=mysqli_query($koneksi,"SELECT sop.*, dataset.jumlahayam d_jumlah, dataset.berat d_berat, dataset.ksuhu d_suhu, dataset.pakan d_pakan, dataset.mortalitas d_mortalitas, dataset.kmortalitas d_kmortalitas FROM sop LEFT JOIN dset as dataset ON dataset.umur = sop.umur WHERE dataset.user_id = $user_id");
+$q_sop=mysqli_query($koneksi,"SELECT sop.*, dataset.jumlahayam d_jumlah, dataset.berat d_berat, dataset.ksuhu d_suhu, dataset.pakan d_pakan, dataset.mortalitas d_mortalitas, dataset.kat_mortalitas d_kat_mortalitas FROM sop LEFT JOIN dset as dataset ON dataset.umur = sop.umur WHERE dataset.user_id = $user_id");
 
 $sop = mysqli_fetch_all($q_sop, MYSQLI_ASSOC);
 
@@ -32,7 +32,7 @@ foreach ($sop as $k => $d) {
   $html .= '<td>'. $d['d_suhu'] .'</td>';
   $html .= '<td>'. $d['d_jumlah'] .'</td>';
   $html .= '<td>'. $d['d_mortalitas'] .'</td>';
-  $html .= '<td>'. $d['d_kmortalitas'] .'</td>';
+  $html .= '<td>'. $d['d_kat_mortalitas'] .'</td>';
   $html .= '<td>'. $d['berat'] .'</td>';
   $html .= '<td>'. $d['pakan'] .'</td>';
   $html .= '<td>'. $d['suhu'] .'</td>';
