@@ -3,12 +3,15 @@
 function getSetting($key)  {
     include 'config.php';
     $settings = [
-        'kapasitas_maksimal' => '',
-        'umur_awal' => '',
-        'umur_panen' => '',
-        'umur_panen_maksimal' => '',
-        'berat_panen' => '',
+        'populasi_banyak' => '',
+        'populasi_sedikit' => '',
         'batas_mortalitas' => '',
+        'berat_besar' => '',
+        'berat_kurang' => '',
+        'umur_lebih' => '',
+        'umur_kurang' => '',
+        'aturan_pakan' => '',
+        'aturan_suhu' => '',
     ];
     
     if (!in_array($key, array_keys($settings))) return "";
@@ -47,9 +50,11 @@ function mapMortalitas($mortalitas) {
 }
 
 function mapJumlah($jumlahayam) {
-    if ($jumlahayam >= 3000) {
-        return 'besar';
-    } else if ($jumlahayam < 3000 && $jumlahayam > 2000) {
+    $abanyak = getSetting('populasi_banyak');
+    $asedikit = getSetting('populasi_sedikit');
+    if ($jumlahayam >=  $abanyak) {
+        return 'banyak';
+    } else if ($jumlahayam < $abanyak && $jumlahayam > $asedikit) {
         return 'sedang';
     }
 
@@ -57,9 +62,11 @@ function mapJumlah($jumlahayam) {
 }
 
 function mapBerat($berat) {
-    if ($berat > 2000) {
+    $bbesar = getSetting('berat_besar');
+    $bkurang = getSetting('berat_kurang');
+    if ($berat > $bbesar) {
         return 'besar';
-    } else if ($berat <= 2000 && $berat >= 1700) {
+    } else if ($berat <= $bbesar && $berat >= $bkurang) {
         return 'sedang';
     }
     
@@ -67,9 +74,11 @@ function mapBerat($berat) {
 }
 
 function mapUmur($umur) {
-    if ($umur > 37) {
+    $ulebih = getSetting('umur_lebih');
+    $ukurang = getSetting('umur_kurang');
+    if ($umur > $ulebih) {
         return 'lebih';
-    } else if ($umur <= 37 && $umur > 34) {
+    } else if ($umur <= $ulebih && $umur > $ukurang) {
         return 'sedang';
     }
     
@@ -78,7 +87,7 @@ function mapUmur($umur) {
 
 function mapPakan($umur, $pakan) {
     $sop = getSOP($umur);
-    if ($sop && isset($sop['pakan']) && (int) $sop['pakan'] == $pakan) {
+    if ($sop && isset($sop['pakan']) && (float) $sop['pakan'] == (float)$pakan) {
         return  'sesuai';
     }
     return 'tidak sesuai';
@@ -101,39 +110,39 @@ function decision_tree($umur, $mortalitas, $jumlahayam, $berat, $pakan) {
 
     if (strtolower($mortalitas) == "kecil") {
         if (strtolower($jumlahayam) == "banyak") {
-            $result['pengelolaan'] = 'baik';
+            $result['pengelolaan'] = 'Baik';
         } else {
             if (strtolower($jumlahayam) == "sedang") {
-                $result['pengelolaan'] = 'baik';
+                $result['pengelolaan'] = 'Baik';
             } else {
-                $result['pengelolaan'] = 'kurang';
+                $result['pengelolaan'] = 'Kurang';
             }
         }
     } else {
         if (strtolower($berat) == "besar") {
-            $result['pengelolaan'] = 'kurang';
+            $result['pengelolaan'] = 'Kurang';
         } else {
             if (strtolower($berat) == "sedang") {
                 if (strtolower($pakan) == "sesuai") {
-                    $result['pengelolaan'] = 'baik';
+                    $result['pengelolaan'] = 'Baik';
                 } else {
-                    $result['pengelolaan'] = 'kurang';
+                    $result['pengelolaan'] = 'Kurang';
                 }
             } else {
                 if (strtolower($pakan) == "sesuai") {
-                    $result['pengelolaan'] = 'baik';
+                    $result['pengelolaan'] = 'Baik';
                 } else {
                     if (strtolower($jumlahayam) == "banyak") {
                         if ($umur >= 23) {
-                           $result['pengelolaan'] = 'kurang';
+                           $result['pengelolaan'] = 'Kurang';
                         } else {
-                           $result['pengelolaan'] = 'kurang';
+                           $result['pengelolaan'] = 'Kurang';
                         }
                     } else {
                         if (strtolower($jumlahayam) == "sedang") {
-                           $result['pengelolaan'] = 'kurang';
+                           $result['pengelolaan'] = 'Kurang';
                         } else {
-                           $result['pengelolaan'] = 'kurang';
+                           $result['pengelolaan'] = 'Kurang';
                         }
                     }
                 }

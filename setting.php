@@ -3,12 +3,15 @@ include "config.php";
 include ('check_login.php');
 
 $settings = [
-    'kapasitas_maksimal' => '',
-    'umur_awal' => '',
-    'umur_panen' => '',
-    'umur_panen_maksimal' => '',
-    'berat_panen' => '',
+    'populasi_banyak' => '',
+    'populasi_sedikit' => '',
     'batas_mortalitas' => '',
+    'berat_besar' => '',
+    'berat_kurang' => '',
+    'umur_lebih' => '',
+    'umur_kurang' => '',
+    'aturan_pakan' => '',
+    'aturan_suhu' => '',
 ];
 
 if (isset($_POST['action'])) {
@@ -41,45 +44,23 @@ include("layout/sidebar.php");
         <form action="" method="POST" enctype="multipart/form-data">
         <div class="form-group row">
             <div class="col-sm">
-                <label>Kapasitas Maksimal</label>
+                <label>Populasi banyak </label>
             </div>
             <div class="col-sm">
-                <input class="form-control form-control" type="text" name="settings[kapasitas_maksimal]" style="width:45rem" value="<?=$settings['kapasitas_maksimal']?>">
+                <input class="form-control form-control" type="text" name="settings[populasi_banyak]" style="width:45rem" value="<?=$settings['populasi_banyak']?>">
             </div>
         </div> 
+        
         <div class="form-group row">
             <div class="col-sm">
-                <label>Umur Awal</label>
+                <label>Populasi sedikit</label>
             </div>
             <div class="col-sm">
-                <input class="form-control form-control" type="text" name="settings[umur_awal]" style="width:45rem" value="<?=$settings['umur_awal']?>">
+                <input class="form-control form-control" type="text" name="settings[populasi_sedikit]" style="width:45rem" value="<?=$settings['populasi_sedikit']?>">
             </div>
         </div>
+        
         <div class="form-group row">
-            <div class="col-sm">
-                <label>Umur Panen</label>
-            </div>
-            <div class="col-sm">
-                <input class="form-control form-control" type="text" name="settings[umur_panen]" style="width:45rem" value="<?=$settings['umur_panen']?>">
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm">
-                <label>Umur Panen Maksimal</label>
-            </div>
-            <div class="col-sm">
-                <input class="form-control form-control" type="text" name="settings[umur_panen_maksimal]" style="width:45rem" value="<?=$settings['umur_panen_maksimal']?>">
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm">
-                <label>Berat Panen</label>
-            </div>
-            <div class="col-sm">
-                <input class="form-control form-control" type="text" name="settings[berat_panen]" style="width:45rem" value="<?=$settings['berat_panen']?>">
-            </div>
-        </div>
-         <div class="form-group row">
             <div class="col-sm">
                 <label>Batas Mortalitas</label>
             </div>
@@ -87,6 +68,41 @@ include("layout/sidebar.php");
                 <input class="form-control form-control" type="text" name="settings[batas_mortalitas]" style="width:45rem" value="<?=$settings['batas_mortalitas']?>">
             </div>
         </div>
+        <div class="form-group row">
+            <div class="col-sm">
+                <label>Berat besar</label>
+            </div>
+            <div class="col-sm">
+                <input class="form-control form-control" type="text" name="settings[berat_besar]" style="width:45rem" value="<?=$settings['berat_besar']?>">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <div class="col-sm">
+                <label>Berat kurang</label>
+            </div>
+            <div class="col-sm">
+                <input class="form-control form-control" type="text" name="settings[berat_kurang]" style="width:45rem" value="<?=$settings['berat_kurang']?>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm">
+                <label>Umur panen lebih</label>
+            </div>
+            <div class="col-sm">
+                <input class="form-control form-control" type="text" name="settings[umur_lebih]" style="width:45rem" value="<?=$settings['umur_lebih']?>">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <div class="col-sm">
+                <label>Umur panen kurang</label>
+            </div>
+            <div class="col-sm">
+                <input class="form-control form-control" type="text" name="settings[umur_kurang]" style="width:45rem" value="<?=$settings['umur_kurang']?>">
+            </div>
+        </div>
+        
         <div>
             <div class="col-sm mt-5">
                 <button type="submit" name="action" value="save" class="btn btn-secondary">Simpan</button>

@@ -39,11 +39,8 @@ $persen_mortalitas = $first ? $sum_mortalitas / $first['jumlahayam'] * 100 : 0;
           <div class="col-sm">
             <div class="alert alert-secondary" style="width:600px;" role="alert">
               <h3>Informasi ternak</h3>
-
               <table class="table caption-top" style="width:px;">
-
                 <thead>
-
                   <!-- <tr>
                     <th scope="col">Tanggal DOC masuk </th>
                     <td> <?=$first['tgl']?> </td>
@@ -76,19 +73,12 @@ $persen_mortalitas = $first ? $sum_mortalitas / $first['jumlahayam'] * 100 : 0;
                     <th scope="col">Keterangan mortalitas keseluruhan </th>
                     <td> <?=$persen_mortalitas > 5 ? "Mortalitas Besar" : "Mortalitas Kecil" ?></td>
                   </tr>
-
-
-
                 </thead>
               </table>
             </div>
           </div>
         </div>
-
       </div>
-
-
-
     </div>
   </div>
 </div>

@@ -33,13 +33,16 @@ CREATE TABLE IF NOT EXISTS `dset` (
   `tgl` varchar(50) DEFAULT '0',
   `pengelolaan` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_dectree_ayam.dset: ~1 rows (approximately)
+-- Dumping data for table db_dectree_ayam.dset: ~0 rows (approximately)
 DELETE FROM `dset`;
 /*!40000 ALTER TABLE `dset` DISABLE KEYS */;
 INSERT INTO `dset` (`id`, `umur`, `kat_umur`, `user_id`, `jumlahayam`, `kat_jumlah`, `mortalitas`, `kat_mortalitas`, `berat`, `kat_berat`, `pakan`, `kat_pakan`, `ksuhu`, `kat_suhu`, `kmortalitas`, `deskripsi`, `tgl`, `pengelolaan`) VALUES
-	(3, 1, 'kurang', 1, 3000, 'besar', 0, 'kecil', 2000, 'sedang', 15.0, 'tidak sesuai', 35, '', '', '', '11-04-2021', 'kurang');
+	(3, 1, 'kurang', 1, 3000, 'besar', 0, 'kecil', 2000, 'sedang', 15.0, 'tidak sesuai', 35, '', '', '', '11-04-2021', 'kurang'),
+	(11, 1, 'kurang', 2, 3100, 'banyak', 4, 'kecil', 56, 'kurang', 0.8, 'tidak sesuai', 33, '', '', '', '0', 'Baik'),
+	(12, 2, 'kurang', 2, 3096, 'banyak', 5, 'besar', 71, 'kurang', 1.0, 'sesuai', 33, '', '', '', '0', 'Baik'),
+	(15, 3, 'kurang', 2, 3091, 'banyak', 7, 'besar', 88, 'kurang', 1.3, 'tidak sesuai', 33, '', '', '', '0', 'Kurang');
 /*!40000 ALTER TABLE `dset` ENABLE KEYS */;
 
 -- Dumping structure for table db_dectree_ayam.setting
@@ -50,18 +53,19 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `value` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `key` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table db_dectree_ayam.setting: ~6 rows (approximately)
+-- Dumping data for table db_dectree_ayam.setting: ~0 rows (approximately)
 DELETE FROM `setting`;
 /*!40000 ALTER TABLE `setting` DISABLE KEYS */;
 INSERT INTO `setting` (`id`, `key`, `value`) VALUES
-	(1, 'kapasitas_maksimal', '4000'),
-	(2, 'umur_awal', '1'),
-	(3, 'umur_panen', '35'),
-	(4, 'umur_panen_maksimal', '37'),
-	(5, 'berat_panen', '3000'),
-	(6, 'batas_mortalitas', '5');
+	(1, 'populasi_banyak', '3000'),
+	(2, 'populasi_sedikit', '2000'),
+	(3, 'batas_mortalitas', '5'),
+	(4, 'berat_besar', '2000'),
+	(5, 'berat_kurang', '1700'),
+	(6, 'umur_lebih', '37'),
+	(7, 'umur_kurang', '34');
 /*!40000 ALTER TABLE `setting` ENABLE KEYS */;
 
 -- Dumping structure for table db_dectree_ayam.sop
@@ -75,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `sop` (
   PRIMARY KEY (`umur`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_dectree_ayam.sop: ~37 rows (approximately)
+-- Dumping data for table db_dectree_ayam.sop: ~0 rows (approximately)
 DELETE FROM `sop`;
 /*!40000 ALTER TABLE `sop` DISABLE KEYS */;
 INSERT INTO `sop` (`umur`, `berat`, `pakan`, `suhu`, `pakan_gram`) VALUES
@@ -128,13 +132,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(200) NOT NULL DEFAULT '0',
   `alamat` varchar(200) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table db_dectree_ayam.user: ~0 rows (approximately)
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `nama`, `username`, `email`, `password`, `alamat`) VALUES
-	(1, 'Ahmat suwanto', 'iam', 'peserta101@hi2.in', '$2y$10$vjxxIJaMcI6bLEBp/eo1guq9cTV.MAZlMmDHRN1jtNg376hUyuDw2', 'iam');
+	(1, 'Ahmat suwanto', 'iam', 'peserta101@hi2.in', '$2y$10$vjxxIJaMcI6bLEBp/eo1guq9cTV.MAZlMmDHRN1jtNg376hUyuDw2', 'iam'),
+	(2, 'ayam', 'ayam', 'ayampedaging@gmail.com', '$2y$10$nOurGAX/q246zQ4dcIpeGuk4PbAhwfKk4OzceMQkTPEID/IRwHKhO', 'magetan');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

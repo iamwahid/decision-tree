@@ -14,8 +14,7 @@
         $berat=$_POST['berat'];
         $pakan=$_POST['pakan'];
         $ksuhu=$_POST['ksuhu'];
-        $tgl=$_POST['tgl'];
-    
+        
         $dectree = decision_tree($umur, $mortalitas, $jumlahayam, $berat, $pakan);
 
         // $kmortalitas=$dectree['nilai']; // value from decision tree
@@ -46,7 +45,6 @@
             `kat_suhu`,
             `kmortalitas`, 
             `deskripsi`, 
-            `tgl`, 
             `pengelolaan`
         )
         VALUES
@@ -66,7 +64,6 @@
             '',
             '', 
             '$deskripsi', 
-            '$tgl', 
             '$pengelolaan')
         ");
         if ($query){
@@ -83,7 +80,6 @@
         $berat=$_POST['berat'];
         $pakan=$_POST['pakan'];
         $ksuhu=$_POST['ksuhu'];
-        $tgl=$_POST['tgl'];
         
         $dectree = decision_tree($umur, $mortalitas, $jumlahayam, $berat, $pakan);
         // $kmortalitas=$dectree['nilai']; // value from decision tree
@@ -109,8 +105,7 @@
          kat_pakan='$kat_pakan', 
          kat_suhu='',
          kmortalitas='$kmortalitas', 
-         deskripsi='$deskripsi', 
-         tgl='$tgl' 
+         deskripsi='$deskripsi'
          
          WHERE id = '$id' AND user_id = $user_id";
         $query=mysqli_query($koneksi, $sql);

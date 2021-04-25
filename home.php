@@ -25,105 +25,68 @@ foreach ($result as $k => $sett) {
 
 ?>
 <div class="wrapper">
-  <!--end-->
   <div class="wrapper">
     <div id="content mt-5">
       <div class="container-fluid mt-5 p-5">
-
         <div class="row">
           <div class="col-sm">
-            <div class="alert alert-secondary" style="width:350px;" role="alert">
+            <div class="alert alert-secondary" style="width:500px;" role="alert">
               <h3>Informasi</h3>
               <a href="setting.php"><button class="btn btn-secondary" style="width:150px; margin-right:20px;">Ubah Informasi</button></a>
               <table class="table caption-top" style="width:px;">
-
                 <thead>
                   <tr>
-                    <th scope="col">Kapasitas maksimal ayam </th>
-                    <td><?=$settings['kapasitas_maksimal']?> ekor</td>
+                    <th scope="col">Populasi Banyak </th>
+                    <td> ≥ <?=$settings['populasi_banyak']?> ekor</td>
                   </tr>
                   <tr>
-                    <th scope="col">Umur awal</th>
-                    <td><?=$settings['umur_awal']?> hari</td>
-                  <tr>
-                  <tr>
-                    <th scope="col">Umur panen</th>
-                    <td><?=$settings['umur_panen']?> hari</td>
+                    <th scope="col">Populasi Sedang </th>
+                    <td>
+                      <?=$settings['populasi_sedikit']?> ekor < Populasi < <?=$settings['populasi_banyak']?> ekor</td>
                   </tr>
                   <tr>
-                    <th scope="col">Umur panen maksimal</th>
-                    <td><?=$settings['umur_panen_maksimal']?> hari</td>
+                    <th scope="col">Populasi Sedikit</th>
+                    <td><?=$settings['populasi_sedikit']?> ekor</td>
                   </tr>
                   <tr>
-                    <th scope="col">Berat panen</th>
-                    <td><?=$settings['berat_panen']?> gram</td>
+                    <th scope="col">Mortalitas Besar </th>
+                    <td>  ≥  <?=$settings['batas_mortalitas']?> ekor</td>
                   </tr>
                   <tr>
-                    <th scope="col">Mortalitas besar </th>
-                    <td> >= <?=$settings['batas_mortalitas']?> ekor</td>
-                  </tr>
-                  <tr>
-                    <th scope="col">Mortalitas kecil </th>
+                    <th scope="col">Mortalitas Kecil </th>
                     <td>
                       < <?=$settings['batas_mortalitas']?> ekor</td>
                   </tr>
-
-
+                  <tr>
+                    <th scope="col">Berat Besar</th>
+                    <td><?=$settings['berat_besar']?> gram</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">Berat Sedang</th>
+                    <td><?=$settings['berat_kurang']?> gram ≤ Berat ≤ <?=$settings['berat_besar']?> gram</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">Berat Kurang</th>
+                    <td><?=$settings['berat_kurang']?> gram</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">Umur Kurang</th>
+                    <td><?=$settings['umur_kurang']?> Hari</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">Umur Sedang</th>
+                    <td><?=$settings['umur_kurang']?> Hari > Umur ≤ <?=$settings['umur_lebih']?> Hari</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">Umur Lebih</th>
+                    <td><?=$settings['umur_lebih']?> Hari</td>
+                  </tr>
                 </thead>
               </table>
             </div>
-
-
           </div>
-          <!-- <div class="col-sm">
-            <div class="alert alert-secondary" style="width:350px;" role="alert">
-              <h3>Informasi ternak</h3>
-
-              <table class="table caption-top" style="width:px;">
-
-                <thead>
-
-                  <tr>
-                    <th scope="col">Tanggal DOC masuk </th>
-                    <td> 01-01-2021 </td>
-                  </tr>
-                  <tr>
-                    <th scope="col">Umur </th>
-                    <td>35 hari</td>
-                  </tr>
-                  <tr>
-                    <th scope="col">Jumlah Ayam</th>
-                    <td>2945 hari</td>
-                  <tr>
-                  <tr>
-                    <th scope="col">Berat</th>
-                    <td>2110 gram</td>
-                  </tr>
-                  <tr>
-                    <th scope="col">Jumlah total pakan</th>
-                    <td>190 sak</td>
-                  </tr>
-                  <tr>
-                    <th scope="col">Jumlah total mortalitas</th>
-                    <td>155 ekor</td>
-                  </tr>
-                  <tr>
-                    <th scope="col">Persentase mortalitas </th>
-                    <td> 5%</td>
-                  </tr>
-
-
-
-                </thead>
-              </table>
-            </div>
-          </div> -->
         </div>
-
       </div>
-
-
-
     </div>
   </div>
 </div>
