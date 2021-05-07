@@ -75,14 +75,7 @@ $max_val = $max['val'] ? $max['val']+1 : 1;
                 <input class="form-control form-control" type="text" name="ksuhu" style="width:45rem" value="<?= $action == 'edit' ? $dataset['ksuhu'] : '' ?>">
             </div>
         </div>
-        <div class="form-group row">
-            <div class="col-sm-2">
-                <label>Tanggal</label>
-            </div>
-            <div class="col-sm">
-                <input class="form-control form-control" type="text" name="tgl" style="width:45rem" value="<?= $action == 'edit' ? $dataset['tgl'] : '' ?>">
-            </div>
-        </div>
+        
         <div>
             <div class="col-sm mt-5">
                 <?php if ($action == 'create'): ?>

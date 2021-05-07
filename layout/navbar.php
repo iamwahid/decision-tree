@@ -12,13 +12,14 @@
     
 <title>Judul</title>
 </head>
+
 <body>
 <!--nav-->
-<nav class="navbar nav-index navbar-expand-lg navbar-light fixed-top">
+<nav class="navbar nav-index navbar-expand-lg navbar-light fixed-top shadow">
     <button type="button" id="sidebarCollapse" class="btn btn-secondary" href="layout/sidebar.php" >
         <i class="fas fa-align-left"></i><span></span>
     </button>
-    <a class="navbar-brand" href="index.php" style="color: white; font-size:25px">Sistem </a>
+    <b class="navbar-brand" href="index.php" style="color: white; font-size:25px">Ayam pedaging</b> 
 </nav>
 <!--content-->
 <div id="content mt-5"></div>

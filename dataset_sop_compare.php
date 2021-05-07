@@ -14,19 +14,15 @@ $sop = mysqli_query($koneksi, "SELECT * FROM sop WHERE umur = '".$dtset['umur'].
 $dsop = mysqli_fetch_assoc($sop);
 
 ?>
-
 <div class="wrapper">
-  <!--end-->
   <div class="wrapper">
     <div id="content mt-5">
       <div class="container-fluid mt-5 p-5">
-
         <div class="row">
           <div class="col-sm">
             <div class="alert alert-secondary" style="width:100%;" role="alert">
-              <h3>Data Ternak terhadap Prosedur Operasi Standar</h3>
+              <h3>Data Ternak Terhadap Prosedur Operasi Standar</h3>
               <table class="table caption-top" style="width:px;">
-
                 <thead>
                   <tr>
                     <th>Paremeter</th>
@@ -75,13 +71,9 @@ $dsop = mysqli_fetch_assoc($sop);
                 </tbody>
               </table>
             </div>
-
-
           </div>
         </div>
-
       </div>
-
     </div>
   </div>
 </div>

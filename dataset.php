@@ -31,9 +31,7 @@ $query=mysqli_query($koneksi,"SELECT * FROM dset WHERE user_id = $user_id");
             <th scope="col">Berat (gram)</th>
             <th scope="col">Pakan (sak)</th>
             <th scope="col">Suhu (°C)</th>
-            <th scope="col">Kategori Mortalitas</th>
             <th scope="col">Pengelolaan</th>
-            <th scope="col">Tanggal</th>
             <th scope="col">Aksi</th>
             
         </tr> 
@@ -41,15 +39,14 @@ $query=mysqli_query($koneksi,"SELECT * FROM dset WHERE user_id = $user_id");
                     while($data=mysqli_fetch_assoc($query)){
                 ?>
                 <tr>
-                    <td><?=$data['umur'].' ('.$data['kat_umur'].')' ?></td>
-                    <td><?=$data['jumlahayam'].' ('.$data['kat_jumlah'].')' ?></td>
-                    <td><?=$data['mortalitas'].' ('.$data['kat_mortalitas'].')' ?></td>
-                    <td><?=$data['berat'].' ('.$data['kat_berat'].')' ?></td>
-                    <td><?=$data['pakan'].' ('.$data['kat_pakan'].')' ?></td>
+                    <td><?=$data['umur']?></td>
+                    <td><?=$data['jumlahayam']?></td>
+                    <td><?=$data['mortalitas']?></td>
+                    <td><?=$data['berat']?></td>
+                    <td><?=$data['pakan']?></td>
                     <td><?=$data['ksuhu'] ?></td>
-                    <td><?=$data['kat_mortalitas'] ?></td>
                     <td><?=$data['pengelolaan']?></td>
-                    <td><?=$data['tgl']?></td>
+                    
               
                     <td>
                     <a href="dataset_sop_compare.php?id=<?=$data['id']?>"><button type="button" class="btn btn-secondary"><i class="fas fa-info-circle"></i></button></a> 

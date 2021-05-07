@@ -107,7 +107,8 @@ function decision_tree($umur, $mortalitas, $jumlahayam, $berat, $pakan) {
     'pakan' => $pakan,
     'umur' => mapUmur($umur),
   ];
-
+  
+//decision tree
     if (strtolower($mortalitas) == "kecil") {
         if (strtolower($jumlahayam) == "banyak") {
             $result['pengelolaan'] = 'Baik';

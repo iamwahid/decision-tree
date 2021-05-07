@@ -50,8 +50,7 @@ include("layout/sidebar.php");
                 <input class="form-control form-control" type="text" name="settings[populasi_banyak]" style="width:45rem" value="<?=$settings['populasi_banyak']?>">
             </div>
         </div> 
-        
-        <div class="form-group row">
+        <div class="form-group row mt-2">
             <div class="col-sm">
                 <label>Populasi sedikit</label>
             </div>
@@ -60,7 +59,7 @@ include("layout/sidebar.php");
             </div>
         </div>
         
-        <div class="form-group row">
+        <div class="form-group row mt-2">
             <div class="col-sm">
                 <label>Batas Mortalitas</label>
             </div>
@@ -68,7 +67,7 @@ include("layout/sidebar.php");
                 <input class="form-control form-control" type="text" name="settings[batas_mortalitas]" style="width:45rem" value="<?=$settings['batas_mortalitas']?>">
             </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row mt-2">
             <div class="col-sm">
                 <label>Berat besar</label>
             </div>
@@ -77,7 +76,7 @@ include("layout/sidebar.php");
             </div>
         </div>
         
-        <div class="form-group row">
+        <div class="form-group row mt-2">
             <div class="col-sm">
                 <label>Berat kurang</label>
             </div>
@@ -85,7 +84,7 @@ include("layout/sidebar.php");
                 <input class="form-control form-control" type="text" name="settings[berat_kurang]" style="width:45rem" value="<?=$settings['berat_kurang']?>">
             </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row mt-2">
             <div class="col-sm">
                 <label>Umur panen lebih</label>
             </div>
@@ -94,7 +93,7 @@ include("layout/sidebar.php");
             </div>
         </div>
         
-        <div class="form-group row">
+        <div class="form-group row mt-2">
             <div class="col-sm">
                 <label>Umur panen kurang</label>
             </div>

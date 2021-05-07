@@ -54,10 +54,9 @@ if (isset($_POST['register'])) {
         <div class="container">
             <div class="row">
                 <div class="col-sm"></div>
-                <div class="col-sm">
+                <div class="col-sm ">
                     <div class="card shadow">
-                        <div class="card-body mt-4 mb-4">
-                            <h4><b>Pengelolaan Ayam pedaging</b></h4>
+                        <div class="card-body">
                             <h5>Daftar Akun</h5>
                             <?=isset($errors['invalid']) ? '<span>'.$errors['invalid'].'</span>' : '' ?>
                             <form action="" method="post">
@@ -86,8 +85,8 @@ if (isset($_POST['register'])) {
                                     <label for="exampleInputPassword1">Konfirmasi Password</label>
                                     <input type="password" class="form-control" placeholder="Konfirmasi Password" name="password_confirm" required>
                                 </div>
-                                <div class="input-group mt-4">
-                                    <input type="submit" name="register" class="btn btn-primary" value="register">
+                                <div class="input-group mt-3">
+                                    <input type="submit" name="register" class="btn btn-secondary" value="register">
                                 </div>
                             </form>
                         </div>
@@ -104,7 +103,7 @@ if (isset($_POST['register'])) {
       <div class="row py-3">
         <div class="col">
           <small style="font-family: 'Quicksand', sans-serif;" >
-            copyright © 2021 - TI 
+            copyright © 2021 - Ayam Pedaging
           </small>
         </div>
       </div>

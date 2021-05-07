@@ -26,8 +26,6 @@
         $kat_berat=$dectree['berat']; // value from decision tree
         $kat_pakan=$dectree['pakan']; // value from decision tree
 
-        $deskripsi = mysqli_escape_string($koneksi, $deskripsi);
-        // echo var_dump($dectree);die;
         $query=mysqli_query($koneksi, "INSERT INTO dset
         (
             `user_id`, 
@@ -43,8 +41,7 @@
             `kat_berat`, 
             `kat_pakan`, 
             `kat_suhu`,
-            `kmortalitas`, 
-            `deskripsi`, 
+            `kmortalitas`,  
             `pengelolaan`
         )
         VALUES
@@ -62,8 +59,7 @@
             '$kat_berat',
             '$kat_pakan',
             '$kmortalitas',
-            '', 
-            '$deskripsi', 
+            '',  
             '$pengelolaan')
         ");
         if ($query){
@@ -105,7 +101,6 @@
          kat_pakan='$kat_pakan', 
          kat_suhu='',
          kmortalitas='$kat_mortalitas', 
-         deskripsi='$deskripsi',
          pengelolaan='$pengelolaan'
          
          WHERE id = '$id' AND user_id = $user_id";

@@ -30,9 +30,9 @@ foreach ($result as $k => $sett) {
       <div class="container-fluid mt-5 p-5">
         <div class="row">
           <div class="col-sm">
-            <div class="alert alert-secondary" style="width:500px;" role="alert">
-              <h3>Informasi</h3>
-              <a href="setting.php"><button class="btn btn-secondary" style="width:150px; margin-right:20px;">Ubah Informasi</button></a>
+            <div class="alert alert-secondary shadow"  style="width:500px;" role="alert">
+              <h3>Nilai Batasan
+              <a href="setting.php"><button class="btn btn-secondary" style="width:150px; margin-left:40px;">Input Data</button></a></h3>
               <table class="table caption-top" style="width:px;">
                 <thead>
                   <tr>

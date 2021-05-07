@@ -29,7 +29,7 @@ if (isset($_POST['login'])) {
     <link rel="stylesheet" href="style.css">
     <link href="fontawesome/css/all.css" rel="stylesheet"> <!--load all styles -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"> 
-    <title>Judul</title>
+    <title>Ayam Pedaging</title>
 </head>
 <body>
     <div class="container-fluid login">
@@ -39,19 +39,19 @@ if (isset($_POST['login'])) {
                 <div class="col-sm">
                     <div class="card shadow">
                         <div class="card-body mt-4 mb-4">
-                            <h4><b>Pengelolaan Ayam pedaging</b></h4>
+                            <h4><b>Sistem Pengelolaan Ayam pedaging</b></h4>
                             <h5>Login</h5>
                             <form action="" method="post">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">User Name</label>
+                                    <label for="exampleInputEmail1">Username</label>
                                     <input type="text" class="form-control" placeholder="Username" name="username">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mt-2">
                                     <label for="exampleInputPassword1">Password</label>
                                     <input type="password" class="form-control" placeholder="Password" name="password">
                                 </div>
                                 <div class="input-group mt-4">
-                                    <input type="submit" name="login" class="btn btn-primary" value="Login">
+                                    <input type="submit" name="login" class="btn btn-secondary" value="Login">
                                 </div>
                             </form>
                         </div>
@@ -68,7 +68,7 @@ if (isset($_POST['login'])) {
       <div class="row py-3">
         <div class="col">
           <small style="font-family: 'Quicksand', sans-serif;" >
-            copyright © 2021 - TI 
+            copyright © 2021 - Ayam Pedaging
           </small>
         </div>
       </div>

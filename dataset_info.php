@@ -41,10 +41,6 @@ $persen_mortalitas = $first ? $sum_mortalitas / $first['jumlahayam'] * 100 : 0;
               <h3>Informasi ternak</h3>
               <table class="table caption-top" style="width:px;">
                 <thead>
-                  <!-- <tr>
-                    <th scope="col">Tanggal DOC masuk </th>
-                    <td> <?=$first['tgl']?> </td>
-                  </tr> -->
                   <tr>
                     <th scope="col">Umur </th>
                     <td><?=$last['umur']?> hari</td>

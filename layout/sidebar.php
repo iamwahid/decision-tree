@@ -10,7 +10,7 @@
     <link href="fontawesome/css/all.css" rel="stylesheet"> <!--load all styles -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"> 
     
-<title>Judul</title>
+<title>Ayam Pedaging</title>
 </head>
 <body>
 <div class="wrapper">
@@ -18,11 +18,11 @@
 <nav id="sidebar">
     <ul class="list-unstyled components">
         <li class="menu mt-5">
-            <a href="home.php">Home</a></li>
-            <li><a href="dataset.php">Data Ternak</a></li>
-            <li><a href="sop.php">Rekomendasi</a></li>
+            <a href="home.php"><i class='fas fa-home'></i> Home</a></li>
+            <li><a href="dataset.php"><i class='fas fa-file'></i> Data Ternak</a></li>
+            <li><a href="sop.php"><i class='fas fa-file-alt'></i> Rekomendasi</a></li>
             <!-- <li><a href="rule.php">Rule</a></li> -->
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="logout.php"><i class='fas fa-sign-out-alt'></i> Logout</a></li>
             </li>
         </ul>
     </nav>
