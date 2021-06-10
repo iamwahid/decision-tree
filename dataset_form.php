@@ -3,17 +3,17 @@ include("layout/navbar.php");
 include("layout/sidebar.php");
 include("config.php");
 include ('check_login.php');
-// $query=mysqli_query($koneksi,"SELECT * FROM dset");
+// $query=mysqli_query($koneksi,"SELECT * FROM data_ternak");
 
 $action = isset($_GET['action']) ? $_GET['action'] : 'create';
 $id = isset($_GET['id']) ? $_GET['id'] : NULL;
 $user_id = $_SESSION['user_login'];
 if ($action == 'edit' && $id) {
-    $query=mysqli_query($koneksi,"SELECT * FROM dset WHERE id = '$id' AND user_id = $user_id LIMIT 1");
+    $query=mysqli_query($koneksi,"SELECT * FROM data_ternak WHERE id = '$id' AND user_id = $user_id LIMIT 1");
     $dataset = mysqli_fetch_assoc($query);
 }
 
-$query=mysqli_query($koneksi,"SELECT MAX(umur) as val FROM dset WHERE user_id = $user_id");
+$query=mysqli_query($koneksi,"SELECT MAX(umur) as val FROM data_ternak WHERE user_id = $user_id");
 $max = mysqli_fetch_assoc($query);
 $max_val = $max['val'] ? $max['val']+1 : 1;
 

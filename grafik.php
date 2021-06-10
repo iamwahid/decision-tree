@@ -4,8 +4,8 @@ include("layout/sidebar.php");
 include("config.php");
 include ('check_login.php');
 $user_id = $_SESSION['user_login'];
-$dataset=mysqli_query($koneksi,"SELECT * FROM dset WHERE user_id = $user_id");
-$sop=mysqli_query($koneksi,"SELECT * FROM sop");
+$dataset=mysqli_query($koneksi,"SELECT * FROM data_ternak WHERE user_id = $user_id");
+$sop=mysqli_query($koneksi,"SELECT * FROM prosedur_pengelolaan_ternak");
 
 $dtset = mysqli_fetch_all($dataset, MYSQLI_ASSOC);
 $dsop = mysqli_fetch_all($sop, MYSQLI_ASSOC);

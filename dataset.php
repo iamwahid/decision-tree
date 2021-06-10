@@ -4,7 +4,7 @@ include("layout/sidebar.php");
 include ('config.php');
 include ('check_login.php');
 $user_id = $_SESSION['user_login'];
-$query=mysqli_query($koneksi,"SELECT * FROM dset WHERE user_id = $user_id");
+$query=mysqli_query($koneksi,"SELECT * FROM data_ternak WHERE user_id = $user_id");
 ?>
 
 <!-- content -->

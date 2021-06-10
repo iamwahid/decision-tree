@@ -14,7 +14,7 @@ $settings = [
   'batas_mortalitas' => '',
 ];
 
-$query=mysqli_query($koneksi,"SELECT * FROM setting");
+$query=mysqli_query($koneksi,"SELECT * FROM nilai_batasan");
 
 $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
 

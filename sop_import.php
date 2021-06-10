@@ -11,7 +11,7 @@ if (isset($_POST['import'])) {
   move_uploaded_file($file['tmp_name'], __DIR__.'/csv/'.$file['name']);
   $handle = fopen(__DIR__.'/csv/'.$file['name'], "r");
   $i = 0;
-  $query = "INSERT INTO sop (umur, berat, pakan, suhu) VALUES ";
+  $query = "INSERT INTO prosedur_pengelolaan_ternak (umur, berat, pakan, suhu) VALUES ";
   while (($data = fgetcsv($handle)) !== FALSE) {
     if ($i == 0) {
       $i++;

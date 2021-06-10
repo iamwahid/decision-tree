@@ -3,7 +3,7 @@ require 'vendor/autoload.php';
 include("config.php");
 include ('check_login.php');
 $user_id = $_SESSION['user_login'];
-$q_sop=mysqli_query($koneksi,"SELECT sop.*, dataset.jumlahayam d_jumlah, dataset.berat d_berat, dataset.ksuhu d_suhu, dataset.pakan d_pakan, dataset.mortalitas d_mortalitas, dataset.pengelolaan d_pengelolaan FROM sop LEFT JOIN dset as dataset ON dataset.umur = sop.umur WHERE dataset.user_id = $user_id");
+$q_sop=mysqli_query($koneksi,"SELECT prosedur_pengelolaan_ternak.*, dataset.jumlahayam d_jumlah, dataset.berat d_berat, dataset.ksuhu d_suhu, dataset.pakan d_pakan, dataset.mortalitas d_mortalitas, dataset.pengelolaan d_pengelolaan FROM prosedur_pengelolaan_ternak LEFT JOIN data_ternak as dataset ON dataset.umur = prosedur_pengelolaan_ternak.umur WHERE dataset.user_id = $user_id");
 
 $sop = mysqli_fetch_all($q_sop, MYSQLI_ASSOC);
 

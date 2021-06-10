@@ -26,7 +26,7 @@
         $kat_berat=$dectree['berat']; // value from decision tree
         $kat_pakan=$dectree['pakan']; // value from decision tree
 
-        $query=mysqli_query($koneksi, "INSERT INTO dset
+        $query=mysqli_query($koneksi, "INSERT INTO data_ternak
         (
             `user_id`, 
             `umur`, 
@@ -89,7 +89,7 @@
         $kat_berat=$dectree['berat']; // value from decision tree
         $kat_pakan=$dectree['pakan']; // value from decision tree
         
-        $sql = "UPDATE dset SET 
+        $sql = "UPDATE data_ternak SET 
          jumlahayam='$jumlahayam', 
          mortalitas='$mortalitas',
          berat='$berat', 
@@ -113,7 +113,7 @@
     } else if ($action == 'delete') {
         $id=$_POST['id'];
         if ($id != NULL) 
-            $query=mysqli_query($koneksi,"DELETE FROM dset WHERE id='$id' AND user_id = $user_id");
+            $query=mysqli_query($koneksi,"DELETE FROM data_ternak WHERE id='$id' AND user_id = $user_id");
         
         if ($query) {
             header('location:dataset.php', true, 302);
@@ -121,8 +121,8 @@
             echo "Gagal Hapus";
         }
     } else if ($action == 'reset') {
-        // $query=mysqli_query($koneksi,"TRUNCATE TABLE dset");
-        $query=mysqli_query($koneksi,"DELETE FROM dset WHERE user_id = $user_id");
+        // $query=mysqli_query($koneksi,"TRUNCATE TABLE data_ternak");
+        $query=mysqli_query($koneksi,"DELETE FROM data_ternak WHERE user_id = $user_id");
         if ($query){
             header('location:dataset_form.php', true, 302);
         } else {

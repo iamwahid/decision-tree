@@ -13,7 +13,7 @@ function getSetting($key)  {
     
     if (!in_array($key, array_keys($settings))) return "";
 
-    $query=mysqli_query($koneksi,"SELECT * FROM setting");
+    $query=mysqli_query($koneksi,"SELECT * FROM nilai_batasan");
     
     $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
     

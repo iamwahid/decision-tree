@@ -4,7 +4,7 @@ include("layout/sidebar.php");
 include('config.php');
 include ('check_login.php');
 
-$query = mysqli_query($koneksi, "SELECT * FROM sop");
+$query = mysqli_query($koneksi, "SELECT * FROM prosedur_pengelolaan_ternak");
 ?>
 <!-- content -->
 <div id="content mt-5">

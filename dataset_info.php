@@ -4,16 +4,16 @@ include("layout/sidebar.php");
 include ('config.php');
 include ('check_login.php');
 $user_id = $_SESSION['user_login'];
-$query=mysqli_query($koneksi,"SELECT * FROM dset WHERE umur = '1' AND user_id = $user_id LIMIT 1");
+$query=mysqli_query($koneksi,"SELECT * FROM data_ternak WHERE umur = '1' AND user_id = $user_id LIMIT 1");
 $first = mysqli_fetch_assoc($query);
-$query=mysqli_query($koneksi,"SELECT MAX(umur) as last FROM dset WHERE user_id = $user_id");
+$query=mysqli_query($koneksi,"SELECT MAX(umur) as last FROM data_ternak WHERE user_id = $user_id");
 $max = mysqli_fetch_assoc($query);
 if (!$max) {
   echo "error";die;
 }
 
 if ($max['last']) {
-  $query=mysqli_query($koneksi,"SELECT * FROM dset WHERE umur = ".$max['last']." AND user_id = $user_id LIMIT 1");
+  $query=mysqli_query($koneksi,"SELECT * FROM data_ternak WHERE umur = ".$max['last']." AND user_id = $user_id LIMIT 1");
   $last = mysqli_fetch_assoc($query);
 } else {
   $last['umur'] = '-';
@@ -21,10 +21,10 @@ if ($max['last']) {
   $last['berat'] = '-';
 }
 
-$query=mysqli_query($koneksi,"SELECT SUM(pakan) AS sum FROM dset WHERE user_id = $user_id LIMIT 1");
+$query=mysqli_query($koneksi,"SELECT SUM(pakan) AS sum FROM data_ternak WHERE user_id = $user_id LIMIT 1");
 $sum_pakan = mysqli_fetch_assoc($query)['sum'];
 
-$query=mysqli_query($koneksi,"SELECT SUM(mortalitas) AS sum FROM dset WHERE user_id = $user_id");
+$query=mysqli_query($koneksi,"SELECT SUM(mortalitas) AS sum FROM data_ternak WHERE user_id = $user_id");
 $sum_mortalitas = mysqli_fetch_assoc($query)['sum'];
 
 $persen_mortalitas = $first ? $sum_mortalitas / $first['jumlahayam'] * 100 : 0;

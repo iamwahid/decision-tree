@@ -3,7 +3,7 @@ include("layout/navbar.php");
 include("layout/sidebar.php");
 include("config.php");
 include ('check_login.php');
-$query=mysqli_query($koneksi,"SELECT * FROM dset");
+$query=mysqli_query($koneksi,"SELECT * FROM data_ternak");
 ?>
 <!--content-->
 <div id="content mt-5">

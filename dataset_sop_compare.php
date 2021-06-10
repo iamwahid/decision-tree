@@ -7,10 +7,10 @@ $id = isset($_GET['id']) ? $_GET['id'] : NULL;
 $user_id = $_SESSION['user_login'];
 if (!$id) header('location:dataset.php', true, 302);
 
-$dataset = mysqli_query($koneksi, "SELECT * FROM dset WHERE id = '$id' AND user_id = $user_id LIMIT 1");
+$dataset = mysqli_query($koneksi, "SELECT * FROM data_ternak WHERE id = '$id' AND user_id = $user_id LIMIT 1");
 $dtset = mysqli_fetch_assoc($dataset);
 
-$sop = mysqli_query($koneksi, "SELECT * FROM sop WHERE umur = '".$dtset['umur']."' LIMIT 1");
+$sop = mysqli_query($koneksi, "SELECT * FROM prosedur_pengelolaan_ternak WHERE umur = '".$dtset['umur']."' LIMIT 1");
 $dsop = mysqli_fetch_assoc($sop);
 
 ?>

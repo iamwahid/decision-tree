@@ -16,7 +16,7 @@ function getSetting($key)  {
     
     if (!in_array($key, array_keys($settings))) return "";
 
-    $query=mysqli_query($koneksi,"SELECT * FROM setting");
+    $query=mysqli_query($koneksi,"SELECT * FROM nilai_batasan");
     
     $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
     
@@ -33,7 +33,7 @@ function getSOP($umur)  {
 
     $result = [];
 
-    $query=mysqli_query($koneksi,"SELECT * FROM sop WHERE umur = '$umur' LIMIT 1");
+    $query=mysqli_query($koneksi,"SELECT * FROM prosedur_pengelolaan_ternak WHERE umur = '$umur' LIMIT 1");
     
     $result = mysqli_fetch_assoc($query);
 

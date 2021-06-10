@@ -19,14 +19,14 @@ if (isset($_POST['action'])) {
     $id = 1;
     foreach ($settings as $k => $sett) {
         if (isset($data[$k]))
-        $q = "INSERT INTO setting (`id`, `key`, `value`) VALUES($id, '$k', '".$data[$k]."') ON DUPLICATE KEY UPDATE `key`='$k', `value`='".$data[$k]."'";
+        $q = "INSERT INTO nilai_batasan (`id`, `key`, `value`) VALUES($id, '$k', '".$data[$k]."') ON DUPLICATE KEY UPDATE `key`='$k', `value`='".$data[$k]."'";
         $res=mysqli_query($koneksi,$q);
         $id++;
     }
     header('location:home.php', true, 302);
 }
 
-$query=mysqli_query($koneksi,"SELECT * FROM setting");
+$query=mysqli_query($koneksi,"SELECT * FROM nilai_batasan");
 
 $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
