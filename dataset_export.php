@@ -12,6 +12,7 @@ $html = '<table border="1">
     <th rowspan="2">Umur</th>
     <th colspan="6">Data Ternak</th>
     <th colspan="3">Standar</th>
+    <th colspan="3">Selisih (Data Ternak - Rekomendasi)</th>
   </tr>
   <tr>
     <th>Berat</th>
@@ -23,19 +24,25 @@ $html = '<table border="1">
     <th>Berat</th>
     <th>Pakan</th>
     <th>Suhu</th>
+    <th>Berat</th>
+    <th>Pakan</th>
+    <th>Suhu</th>
   </tr>';
 foreach ($sop as $k => $d) {
   $html .= '<tr>';
   $html .= '<th>'. $d['umur'] .'</th>';
-  $html .= '<td>'. $d['d_berat'] .'</td>';
-  $html .= '<td>'. $d['d_pakan'] .'</td>';
-  $html .= '<td>'. $d['d_suhu'] .'</td>';
+  $html .= '<td>'. $d['d_berat'] .' gram</td>';
+  $html .= '<td>'. $d['d_pakan'] .' sak</td>';
+  $html .= '<td>'. $d['d_suhu'] .' °C</td>';
   $html .= '<td>'. $d['d_jumlah'] .'</td>';
   $html .= '<td>'. $d['d_mortalitas'] .'</td>';
   $html .= '<td>'. $d['d_pengelolaan'] .'</td>';
-  $html .= '<td>'. $d['berat'] .'</td>';
-  $html .= '<td>'. $d['pakan'] .'</td>';
-  $html .= '<td>'. $d['suhu'] .'</td>';
+  $html .= '<td>'. $d['berat'] .' gram</td>';
+  $html .= '<td>'. $d['pakan'] .' sak</td>';
+  $html .= '<td>'. $d['suhu'] .' °C</td>';
+  $html .= '<td>'. ((float)$d['d_berat'] - (float)$d['berat']) .' gram</td>';
+  $html .= '<td>'. ((float)$d['d_pakan'] - (float)$d['pakan'] ).' sak</td>';
+  $html .= '<td>'. ((float)$d['d_suhu'] - (float)$d['suhu']) .' °C</td>';
   $html .= '</tr>';
 }
 

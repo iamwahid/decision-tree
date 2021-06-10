@@ -16,7 +16,7 @@ $query=mysqli_query($koneksi,"SELECT * FROM dset WHERE user_id = $user_id");
             <a href="grafik.php"><button class="btn btn-secondary" style="width:150px; margin-right:20px;">Grafik</button></a>
             <a href="dataset_export.php"><button class="btn btn-secondary" style="width:150px; margin-right:20px;">Export Excel</button></a>
             <a href="#" onclick="dbReset()">
-                <button class="btn btn-secondary" style="width:150px; margin-right:20px;">Buat Baru</button>
+                <button class="btn btn-secondary" style="width:150px; margin-right:20px;">Simpan dan Buat Baru</button>
                 <form action="dataset_action.php" id="dataset_reset" method="POST" class="d-none">
                     <input type="hidden" name="action" value="reset">
                 </form>
@@ -69,7 +69,12 @@ $query=mysqli_query($koneksi,"SELECT * FROM dset WHERE user_id = $user_id");
 <script>
 function dbReset() {
     let baru = confirm("Yakin Untuk Membuat Data Baru ?")
-    if (baru)
-        document.getElementById('dataset_reset').submit()
+    if (baru) {
+        let popout = window.open('dataset_export.php?close=1', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
+        setTimeout(() => {
+            popout.close()
+            document.getElementById('dataset_reset').submit()
+        }, 3000);
+    }
 }
 </script>
